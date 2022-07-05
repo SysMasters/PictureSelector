@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ucrop_photobox"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/ucrop_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/controls_wrapper"
+        android:layout_below="@+id/toolbar">
+
+        <ImageView
+            android:id="@+id/image_view_logo"
+            android:layout_width="@dimen/ucrop_default_crop_logo_size"
+            android:layout_height="@dimen/ucrop_default_crop_logo_size"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ucrop_vector_ic_crop"
+            tools:background="@drawable/ucrop_vector_ic_crop"
+            tools:ignore="ContentDescription,MissingPrefix" />
+
+
+        <com.yalantis.ucrop.view.UCropView
+            android:id="@+id/ucrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0" />
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/controls_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:id="@+id/tvClose"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="关闭"
+            android:textColor="#ffffff"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tvConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#ffffff"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="230dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ucrop_frame"
+            android:layout_gravity="center"
+            android:text="请将证件完整置于取景框内"
+            android:textColor="#ffffff"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ucrop_frame"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="34dp"
+            android:lineSpacingExtra="5dp"
+            android:text="温馨提示： \n可以双指旋转图片进行拖动和缩放操作 \n请保证证件图片完整，避免照片反光、文字清晰可见"
+            android:textColor="#ffffff"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

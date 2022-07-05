@@ -233,7 +233,7 @@ public class UCrop {
         if (dataSource != null && dataSource.size() > 1) {
             mCropIntent.setClass(context, UCropMultipleActivity.class);
         } else {
-            mCropIntent.setClass(context, UCropActivity.class);
+            mCropIntent.setClass(context, SbdUCropActivity.class);
         }
         mCropIntent.putExtras(mCropOptionsBundle);
         return mCropIntent;
