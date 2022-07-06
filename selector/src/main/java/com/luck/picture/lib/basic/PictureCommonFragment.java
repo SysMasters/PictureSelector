@@ -29,6 +29,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.luck.picture.lib.PictureSelectorChooseFragment;
+import com.luck.picture.lib.PictureSelectorPreviewFragment;
 import com.luck.picture.lib.R;
 import com.luck.picture.lib.app.PictureAppMaster;
 import com.luck.picture.lib.config.Crop;
@@ -1355,6 +1357,12 @@ public abstract class PictureCommonFragment extends Fragment implements IPicture
         }
         ArrayList<LocalMedia> selectedResult = SelectedManager.getSelectedResult();
         ArrayList<LocalMedia> result = new ArrayList<>(selectedResult);
+        // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓此处修改↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        if (result.size() == 1) {
+            startChooseFragment(result.get(0));
+            return;
+        }
+        // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑此处修改↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
         if (checkCropValidity()) {
             onCrop(result);
         } else if (checkOldCropValidity()) {
@@ -1367,6 +1375,15 @@ public abstract class PictureCommonFragment extends Fragment implements IPicture
             onResultEvent(result);
         }
     }
+
+    // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓此处修改↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+    private void startChooseFragment(LocalMedia data) {
+        if (ActivityCompatHelper.checkFragmentNonExits(getActivity(), PictureSelectorChooseFragment.TAG)) {
+            PictureSelectorChooseFragment fragment = PictureSelectorChooseFragment.newInstance(data);
+            FragmentInjectManager.injectFragment(getActivity(), PictureSelectorChooseFragment.TAG, fragment);
+        }
+    }
+    // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑此处修改↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     @Override
     public void onCrop(ArrayList<LocalMedia> result) {
@@ -1984,7 +2001,7 @@ public abstract class PictureCommonFragment extends Fragment implements IPicture
     /**
      * Get the video player engine again, provided that the user implements the IApp interface in the Application
      */
-    private void createVideoPlayerEngine(){
+    private void createVideoPlayerEngine() {
         if (PictureSelectionConfig.videoPlayerEngine == null) {
             PictureSelectorEngine baseEngine = PictureAppMaster.getInstance().getPictureSelectorEngine();
             if (baseEngine != null) {

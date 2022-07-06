@@ -55,6 +55,10 @@
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="3.0"
             android:text="关闭"
             android:textColor="#ffffff"
             android:textSize="16dp" />
@@ -67,6 +71,10 @@
             android:layout_marginStart="20dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="3.0"
             android:text="确定"
             android:textColor="#ffffff"
             android:textSize="16dp" />
@@ -85,6 +93,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ucrop_frame"
             android:layout_gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="3.0"
             android:text="请将证件完整置于取景框内"
             android:textColor="#ffffff"
             android:textSize="14dp" />
@@ -97,6 +109,10 @@
             android:layout_marginTop="65dp"
             android:layout_marginEnd="34dp"
             android:lineSpacingExtra="5dp"
+            android:shadowColor="#000000"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="3.0"
             android:text="温馨提示： \n可以双指旋转图片进行拖动和缩放操作 \n请保证证件图片完整，避免照片反光、文字清晰可见"
             android:textColor="#ffffff"
             android:textSize="14dp" />
