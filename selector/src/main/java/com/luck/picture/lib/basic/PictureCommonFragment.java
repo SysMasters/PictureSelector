@@ -1380,7 +1380,7 @@ public abstract class PictureCommonFragment extends Fragment implements IPicture
     private void startChooseFragment(LocalMedia data) {
         if (ActivityCompatHelper.checkFragmentNonExits(getActivity(), PictureSelectorChooseFragment.TAG)) {
             PictureSelectorChooseFragment fragment = PictureSelectorChooseFragment.newInstance(data);
-            FragmentInjectManager.injectFragment(getActivity(), PictureSelectorChooseFragment.TAG, fragment);
+            FragmentInjectManager.injectSystemRoomFragment(requireActivity().getSupportFragmentManager(), PictureSelectorChooseFragment.TAG, fragment);
         }
     }
     // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑此处修改↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑

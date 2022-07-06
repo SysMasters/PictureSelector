@@ -40,6 +40,11 @@ public class PictureSelectorChooseFragment extends PictureCommonFragment impleme
     }
 
     @Override
+    public String getFragmentTag() {
+        return TAG;
+    }
+
+    @Override
     public int getResourceId() {
         int layoutResourceId = InjectResourceSource.getLayoutResource(getContext(), InjectResourceSource.PREVIEW_LAYOUT_RESOURCE);
         if (layoutResourceId != InjectResourceSource.DEFAULT_LAYOUT_RESOURCE) {
